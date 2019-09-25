@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BooksAPI.BusinessLogic\BooksAPI.BusinessLogic.csproj" />
+    <ProjectReference Include="..\BooksAPI.Entities\BooksAPI.Entities.csproj" />
+    <ProjectReference Include="..\BooksAPI.Persistence\BooksAPI.Persistence.csproj" />
+    <ProjectReference Include="..\BooksAPI.Utilities\BooksAPI.Utilities.csproj" />
   </ItemGroup>
 
 </Project>
