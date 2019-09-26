@@ -9,7 +9,6 @@ namespace BooksAPI.Persistence.UnitOfWork
     {
         void SaveChanges();
         Task SaveChangesAsync();
-
         BooksApiContext GetContext();
     }
 }
