@@ -17,9 +17,6 @@ namespace BooksAPI.Persistence.Repositories
         void Remove(TEntity entity);
         void RemoveRange(IEnumerable<TEntity> entities);
         void Update(TEntity entity);
-        IEnumerable<TEntity> GetListMultipleInclude(params Expression<Func<TEntity, object>>[] includes);
-        TEntity GetSingleMultipleInclude(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includes);
-        Task<TEntity> GetIncludeAsync(Expression<Func<TEntity, object>> include, Expression<Func<TEntity, bool>> predicate);
         int GetQuantity();
         bool Any(Expression<Func<TEntity, bool>> predicate);
     }

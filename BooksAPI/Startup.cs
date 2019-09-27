@@ -1,6 +1,10 @@
 using AutoMapper;
 using BooksAPI.BusinessLogic.Mapper;
+using BooksAPI.BusinessLogic.Services.Implementations;
+using BooksAPI.BusinessLogic.Services.Interfaces;
 using BooksAPI.Persistence;
+using BooksAPI.Persistence.Repositories;
+using BooksAPI.Persistence.UnitOfWork;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +28,19 @@ namespace BooksAPI
         {
             services.AddControllers();
             services.AddDbContext<BooksApiContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+
+            //AutoMapper
             services.AddAutoMapper(typeof(MapperProfile));
+
+            //Repositories
+            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddScoped<UnitOfWork, UnitOfWork>();
+
+            //Services
+            services.AddTransient<IAuthorService, AuthorService>();
+            services.AddTransient<IBookService, BookService>();
+            services.AddTransient<IGenreService, GenreService>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
