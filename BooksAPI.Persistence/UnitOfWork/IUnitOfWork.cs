@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace BooksAPI.Persistence.UnitOfWork
 {
-    interface IUnitOfWork : IDisposable
+    public interface IUnitOfWork : IDisposable
     {
         void SaveChanges();
         Task SaveChangesAsync();
