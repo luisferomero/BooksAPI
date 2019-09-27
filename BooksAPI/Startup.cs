@@ -34,7 +34,7 @@ namespace BooksAPI
 
             //Repositories
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<UnitOfWork, UnitOfWork>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             //Services
             services.AddTransient<IAuthorService, AuthorService>();
